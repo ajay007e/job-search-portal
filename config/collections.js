@@ -1,5 +1,5 @@
-//database collection list
-
 module.exports = {
-  EXAMPLE_COLLECTION: "examples"
+  DATABASE_NAME: "portal",
+  USER_COLLECTION: "user",
+  ADMIN_COLLECTION: "admin",
 };

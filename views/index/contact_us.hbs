@@ -24,25 +24,44 @@
     </div>
     <div class="col-2 col-b">
       <div class="contact-mail">
-        <form
-          action="mailto:someone@example.com"
-          method="post"
-          enctype="text/plain"
-        >
-          <input type="text" name="name" placeholder="Name" /><br />
-          <input type="text" name="mail" placeholder="Mobile" /><br />
-          <input type="text" name="sub" placeholder="Subject" /><br />
+        <form class="contact-form" enctype="text/plain">
+          <input type="text" id="cf-name" name="name" placeholder="Name" /><br
+          />
+          <input
+            type="email"
+            id="cf-email"
+            name="email"
+            placeholder="Email"
+          /><br />
+          <input
+            type="text"
+            id="cf-mobile"
+            name="mob"
+            placeholder="Mobile"
+          /><br />
+          <input
+            type="text"
+            id="cf-subject"
+            name="sub"
+            placeholder="Subject"
+          /><br />
 
           <textarea
             name="message"
+            id="cf-message"
             rows="5"
             placeholder="Message.."
           ></textarea><br /><br />
-          <button
+          {{! <button
             class="btn btn-success btn-success-costom"
             type="submit"
             value="Send"
-          >Send</button>
+          >Send</button> }}
+          <button
+            type="submit"
+            class="btn btn-success btn-success-costom primary mail-btn"
+          >
+            <span class="btn-text">Send</span></button>
         </form>
       </div>
     </div>

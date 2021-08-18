@@ -16,10 +16,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto pr-5 mr-5">
-        <li class="nav-item mr-3">
-          <a class="nav-link" href="login">Login
-          </a>
-        </li>
+        {{#if user}}
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="profile">Profile
+            </a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="logout">Logout
+            </a>
+          </li>
+        {{else}}
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="login">Login
+            </a>
+          </li>
+        {{/if}}
         <li class="nav-item mr-3">
           <a class="nav-link" href="contact-us">Contact Us</a>
         </li>
@@ -43,9 +54,19 @@
       <div class="">
         <h3 class="subhead">Here for Finding a Employee</h3>
         <p class="subpara">Search Now,<br /> employee are here</p>
-        <form action="" method="post">
-          <input class="input-s" type="text" placeholder="Job" />
-          <input class="input-s" type="text" placeholder="Location" />
+        <form action="/search" method="get">
+          <select class="input-s" name="job" required>
+            <option value="">Select One Job</option>
+            <option value="electrician">Electrician</option>
+            <option value="plumber">Plubmber</option>
+            <option value="driver">Driver</option>
+          </select>
+          <select class="input-s" name="place" required>
+            <option value="">Select One Location</option>
+            <option value="Kelakam">Kelakam</option>
+            <option value="Manathana">Manathana</option>
+            <option value="Peravoor">Peravoor</option>
+          </select>
           <div class="btn-grp">
             <button class="btn-1 input-s" type="submit">
               <i class="fas fa-search"></i></button>

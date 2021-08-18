@@ -1,27 +1,26 @@
-//mongoDB connection setups
-//edit the dbName
+const collections = require("./collections");
 
 const mongoClient = require("mongodb").MongoClient;
 
 const state = {
-  db: null,
+  database: null,
 };
 
 module.exports.connect = function (done) {
-  const url = "mongodb://localhost:27017";
-  const dbName = "_";
+  const url = process.env.DATABASE_URL;
+  const databaseName = collections.DATABASE_NAME;
 
   mongoClient.connect(
     url,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    (err, data) => {
-      if (err) return done(err);
-      state.db = data.db(dbName);
+    { useNewUrlParser: true,useUnifiedTopology: true },
+    (error, data) => {
+      if (error) return done(error);
+      state.database = data.db(databaseName);
       done();
     }
   );
 };
 
 module.exports.get = function () {
-  return state.db;
+  return state.database;
 };
